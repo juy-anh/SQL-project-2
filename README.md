@@ -117,19 +117,19 @@ GROUP BY 1, 2
 ORDER BY 2, 1;
 ```
 
-**Query result (9 rows shown in the workbook; sales values displayed to 2 decimals):**
+**Query result:**
 
-| period | subcategory | qty_item | total_sales | order_cnt |
-|---|---|---:|---:|---:|
-| Sep 2013 | Bike Racks | 312 | 22,828.51 | 71 |
-| Sep 2013 | Bike Stands | 26 | 4,134.00 | 26 |
-| Sep 2013 | Bottles and Cages | 803 | 4,676.56 | 380 |
-| Sep 2013 | Bottom Brackets | 60 | 3,118.14 | 19 |
-| Sep 2013 | Brakes | 100 | 6,390.00 | 29 |
-| Sep 2013 | Caps | 440 | 2,879.48 | 203 |
-| Sep 2013 | Chains | 62 | 752.93 | 24 |
-| Sep 2013 | Cleaners | 296 | 1,611.83 | 108 |
-| Sep 2013 | Cranksets | 75 | 13,955.85 | 20 |
+| No. | period | subcategory | qty_item | total_sales | order_cnt |
+|---:|---|---|---:|---:|---:|
+| 1 | Sep 2013 | Bike Racks | 312 | 22,828.51 | 71 |
+| 2 | Sep 2013 | Bike Stands | 26 | 4,134.00 | 26 |
+| 3 | Sep 2013 | Bottles and Cages | 803 | 4,676.56 | 380 |
+| 4 | Sep 2013 | Bottom Brackets | 60 | 3,118.14 | 19 |
+| 5 | Sep 2013 | Brakes | 100 | 6,390.00 | 29 |
+| 6 | Sep 2013 | Caps | 440 | 2,879.48 | 203 |
+| 7 | Sep 2013 | Chains | 62 | 752.93 | 24 |
+| 8 | Sep 2013 | Cleaners | 296 | 1,611.83 | 108 |
+| 9 | Sep 2013 | Cranksets | 75 | 13,955.85 | 20 |
 
 **Observation & finding:** This query provides a monthly commercial view by subcategory. It can reveal whether revenue is driven by high item volume, higher-priced products, or a larger number of customer orders.
 
@@ -176,13 +176,13 @@ WHERE growth_rank <= 3
 ORDER BY growth_rank;
 ```
 
-**Query result (all 3 ranked subcategories):**
+**Query result:**
 
-| subcategory | qty_item | prv_qty | qty_diff |
-|---|---:|---:|---:|
-| Mountain Frames | 3,168 | 510 | 5.21 |
-| Socks | 2,724 | 523 | 4.21 |
-| Road Frames | 5,564 | 1,137 | 3.89 |
+| No. | subcategory | qty_item | prv_qty | qty_diff |
+|---:|---|---:|---:|---:|
+| 1 | Mountain Frames | 3,168 | 510 | 5.21 |
+| 2 | Socks | 2,724 | 523 | 4.21 |
+| 3 | Road Frames | 5,564 | 1,137 | 3.89 |
 
 **Observation & finding:** Mountain Frames increased item quantity by 521% versus the prior year. This is a strong demand-growth signal; production capacity and material availability should be reviewed before treating the increase as sustainable.
 
@@ -217,22 +217,22 @@ WHERE rk <= 3
 ORDER BY yr, rk;
 ```
 
-**Query result (12 rows shown in the workbook):**
+**Query result:**
 
-| year | TerritoryID | order_cnt | rank |
-|---:|---:|---:|---:|
-| 2014 | 4 | 11,632 | 1 |
-| 2014 | 6 | 9,711 | 2 |
-| 2014 | 1 | 8,823 | 3 |
-| 2012 | 4 | 17,558 | 1 |
-| 2012 | 6 | 14,412 | 2 |
-| 2012 | 1 | 8,537 | 3 |
-| 2013 | 4 | 26,682 | 1 |
-| 2013 | 6 | 22,553 | 2 |
-| 2013 | 1 | 17,452 | 3 |
-| 2011 | 4 | 3,238 | 1 |
-| 2011 | 6 | 2,705 | 2 |
-| 2011 | 1 | 1,964 | 3 |
+| No. | year | TerritoryID | order_cnt | rank |
+|---:|---:|---:|---:|---:|
+| 1 | 2014 | 4 | 11,632 | 1 |
+| 2 | 2014 | 6 | 9,711 | 2 |
+| 3 | 2014 | 1 | 8,823 | 3 |
+| 4 | 2012 | 4 | 17,558 | 1 |
+| 5 | 2012 | 6 | 14,412 | 2 |
+| 6 | 2012 | 1 | 8,537 | 3 |
+| 7 | 2013 | 4 | 26,682 | 1 |
+| 8 | 2013 | 6 | 22,553 | 2 |
+| 9 | 2013 | 1 | 17,452 | 3 |
+| 10 | 2011 | 4 | 3,238 | 1 |
+| 11 | 2011 | 6 | 2,705 | 2 |
+| 12 | 2011 | 1 | 1,964 | 3 |
 
 **Observation & finding:** Territory 4 was the leading territory in the example 2014 output. Its sales approach, customer mix, and product assortment can be benchmarked against lower-performing territories.
 
@@ -266,12 +266,12 @@ FROM (
 GROUP BY 1, 2;
 ```
 
-**Query result (all returned rows shown in the workbook):**
+**Query result:**
 
-| year | subcategory | total_discount_cost |
-|---:|---|---:|
-| 2012 | Helmets | 827.64732 |
-| 2013 | Helmets | 1,606.04100 |
+| No. | year | subcategory | total_discount_cost |
+|---:|---:|---|---:|
+| 1 | 2012 | Helmets | 827.64732 |
+| 2 | 2013 | Helmets | 1,606.04100 |
 
 **Observation & finding:** The output quantifies the financial cost of a promotion by product group. It should be compared with incremental sales or margin uplift before deciding whether a seasonal discount was effective.
 
@@ -322,30 +322,30 @@ GROUP BY 1, 2
 ORDER BY 1, 2;
 ```
 
-**Query result (20 cohort rows shown in the workbook):**
+**Query result:**
 
-| month_join | month_diff | customer_cnt |
-|---:|---|---:|
-| 1 | M - 0 | 2,076 |
-| 1 | M - 1 | 78 |
-| 1 | M - 2 | 89 |
-| 1 | M - 3 | 252 |
-| 1 | M - 4 | 96 |
-| 1 | M - 5 | 61 |
-| 1 | M - 6 | 18 |
-| 2 | M - 0 | 1,805 |
-| 2 | M - 1 | 51 |
-| 2 | M - 2 | 61 |
-| 2 | M - 3 | 234 |
-| 2 | M - 4 | 58 |
-| 2 | M - 5 | 8 |
-| 3 | M - 0 | 1,918 |
-| 3 | M - 1 | 43 |
-| 3 | M - 2 | 58 |
-| 3 | M - 3 | 44 |
-| 3 | M - 4 | 11 |
-| 4 | M - 0 | 1,906 |
-| 4 | M - 1 | 34 |
+| No. | month_join | month_diff | customer_cnt |
+|---:|---:|---|---:|
+| 1 | 1 | M - 0 | 2,076 |
+| 2 | 1 | M - 1 | 78 |
+| 3 | 1 | M - 2 | 89 |
+| 4 | 1 | M - 3 | 252 |
+| 5 | 1 | M - 4 | 96 |
+| 6 | 1 | M - 5 | 61 |
+| 7 | 1 | M - 6 | 18 |
+| 8 | 2 | M - 0 | 1,805 |
+| 9 | 2 | M - 1 | 51 |
+| 10 | 2 | M - 2 | 61 |
+| 11 | 2 | M - 3 | 234 |
+| 12 | 2 | M - 4 | 58 |
+| 13 | 2 | M - 5 | 8 |
+| 14 | 3 | M - 0 | 1,918 |
+| 15 | 3 | M - 1 | 43 |
+| 16 | 3 | M - 2 | 58 |
+| 17 | 3 | M - 3 | 44 |
+| 18 | 3 | M - 4 | 11 |
+| 19 | 4 | M - 0 | 1,906 |
+| 20 | 4 | M - 1 | 34 |
 
 **Observation & finding:** January's cohort contained 2,076 customers at M-0. The query currently returns retained-customer counts, not a percentage retention rate. For an actual retention-rate KPI, divide each later-month customer count by the M-0 customer count for the same cohort.
 
@@ -387,27 +387,27 @@ FROM (
 ORDER BY Name, mth DESC;
 ```
 
-**Query result (17 rows shown in the workbook):**
+**Query result:**
 
-| product_name | month | year | stock_qty | stock_prv | diff (%) |
-|---|---:|---:|---:|---:|---:|
-| BB Ball Bearing | 12 | 2011 | 8,475 | 14,544 | -41.7 |
-| BB Ball Bearing | 11 | 2011 | 14,544 | 19,175 | -24.2 |
-| BB Ball Bearing | 10 | 2011 | 19,175 | 8,845 | 116.8 |
-| BB Ball Bearing | 9 | 2011 | 8,845 | 9,666 | -8.5 |
-| BB Ball Bearing | 8 | 2011 | 9,666 | 12,837 | -24.7 |
-| BB Ball Bearing | 7 | 2011 | 12,837 | 5,259 | 144.1 |
-| BB Ball Bearing | 6 | 2011 | 5,259 | — | 0.0 |
-| Blade | 12 | 2011 | 1,842 | 3,598 | -48.8 |
-| Blade | 11 | 2011 | 3,598 | 4,670 | -23.0 |
-| Blade | 10 | 2011 | 4,670 | 2,122 | 120.1 |
-| Blade | 9 | 2011 | 2,122 | 2,382 | -10.9 |
-| Blade | 8 | 2011 | 2,382 | 3,166 | -24.8 |
-| Blade | 7 | 2011 | 3,166 | 1,280 | 147.3 |
-| Blade | 6 | 2011 | 1,280 | — | 0.0 |
-| Chain Stays | 12 | 2011 | 1,842 | 3,598 | -48.8 |
-| Chain Stays | 11 | 2011 | 3,598 | 4,670 | -23.0 |
-| Chain Stays | 10 | 2011 | 4,670 | 2,122 | 120.1 |
+| No. | product_name | month | year | stock_qty | stock_prv | diff (%) |
+|---:|---|---:|---:|---:|---:|---:|
+| 1 | BB Ball Bearing | 12 | 2011 | 8,475 | 14,544 | -41.7 |
+| 2 | BB Ball Bearing | 11 | 2011 | 14,544 | 19,175 | -24.2 |
+| 3 | BB Ball Bearing | 10 | 2011 | 19,175 | 8,845 | 116.8 |
+| 4 | BB Ball Bearing | 9 | 2011 | 8,845 | 9,666 | -8.5 |
+| 5 | BB Ball Bearing | 8 | 2011 | 9,666 | 12,837 | -24.7 |
+| 6 | BB Ball Bearing | 7 | 2011 | 12,837 | 5,259 | 144.1 |
+| 7 | BB Ball Bearing | 6 | 2011 | 5,259 | — | 0.0 |
+| 8 | Blade | 12 | 2011 | 1,842 | 3,598 | -48.8 |
+| 9 | Blade | 11 | 2011 | 3,598 | 4,670 | -23.0 |
+| 10 | Blade | 10 | 2011 | 4,670 | 2,122 | 120.1 |
+| 11 | Blade | 9 | 2011 | 2,122 | 2,382 | -10.9 |
+| 12 | Blade | 8 | 2011 | 2,382 | 3,166 | -24.8 |
+| 13 | Blade | 7 | 2011 | 3,166 | 1,280 | 147.3 |
+| 14 | Blade | 6 | 2011 | 1,280 | — | 0.0 |
+| 15 | Chain Stays | 12 | 2011 | 1,842 | 3,598 | -48.8 |
+| 16 | Chain Stays | 11 | 2011 | 3,598 | 4,670 | -23.0 |
+| 17 | Chain Stays | 10 | 2011 | 4,670 | 2,122 | 120.1 |
 
 **Observation & finding:** BB Ball Bearing's stock quantity was 41.7% lower in December than in the prior month. A sharp decline may be healthy if demand increased, but it could also indicate a replenishment risk; sales and planned production should be checked together.
 
@@ -457,21 +457,21 @@ FULL JOIN stock_info b
 ORDER BY 1 DESC, 7 DESC;
 ```
 
-**Query result (11 full December rows shown in the workbook):**
+**Query result:**
 
-| month | year | ProductID | product_name | sales | stock | ratio |
-|---:|---:|---:|---|---:|---:|---:|
-| 12 | 2011 | 745 | HL Mountain Frame - Black, 48 | 1 | 27 | 27.0 |
-| 12 | 2011 | 743 | HL Mountain Frame - Black, 42 | 1 | 26 | 26.0 |
-| 12 | 2011 | 748 | HL Mountain Frame - Silver, 38 | 2 | 32 | 16.0 |
-| 12 | 2011 | 722 | LL Road Frame - Black, 58 | 4 | 47 | 11.75 |
-| 12 | 2011 | 747 | HL Mountain Frame - Black, 38 | 3 | 31 | 10.33 |
-| 12 | 2011 | 726 | LL Road Frame - Red, 48 | 5 | 36 | 7.2 |
-| 12 | 2011 | 738 | LL Road Frame - Black, 52 | 10 | 64 | 6.4 |
-| 12 | 2011 | 730 | LL Road Frame - Red, 62 | 7 | 38 | 5.43 |
-| 12 | 2011 | 741 | HL Mountain Frame - Silver, 48 | 5 | 27 | 5.4 |
-| 12 | 2011 | 725 | LL Road Frame - Red, 44 | 12 | 53 | 4.42 |
-| 12 | 2011 | 729 | LL Road Frame - Red, 60 | 10 | 43 | 4.3 |
+| No. | month | year | ProductID | product_name | sales | stock | ratio |
+|---:|---:|---:|---:|---|---:|---:|---:|
+| 1 | 12 | 2011 | 745 | HL Mountain Frame - Black, 48 | 1 | 27 | 27.0 |
+| 2 | 12 | 2011 | 743 | HL Mountain Frame - Black, 42 | 1 | 26 | 26.0 |
+| 3 | 12 | 2011 | 748 | HL Mountain Frame - Silver, 38 | 2 | 32 | 16.0 |
+| 4 | 12 | 2011 | 722 | LL Road Frame - Black, 58 | 4 | 47 | 11.75 |
+| 5 | 12 | 2011 | 747 | HL Mountain Frame - Black, 38 | 3 | 31 | 10.33 |
+| 6 | 12 | 2011 | 726 | LL Road Frame - Red, 48 | 5 | 36 | 7.2 |
+| 7 | 12 | 2011 | 738 | LL Road Frame - Black, 52 | 10 | 64 | 6.4 |
+| 8 | 12 | 2011 | 730 | LL Road Frame - Red, 62 | 7 | 38 | 5.43 |
+| 9 | 12 | 2011 | 741 | HL Mountain Frame - Silver, 48 | 5 | 27 | 5.4 |
+| 10 | 12 | 2011 | 725 | LL Road Frame - Red, 44 | 12 | 53 | 4.42 |
+| 11 | 12 | 2011 | 729 | LL Road Frame - Red, 60 | 10 | 43 | 4.3 |
 
 **Observation & finding:** The example product had 27 stock units for one unit sold in December, producing a ratio of 27.0. A high stock-to-sales ratio may indicate overstock or weak demand; persistently low ratios can signal stockout risk.
 
@@ -495,9 +495,9 @@ GROUP BY 1, 2;
 
 **Query result:**
 
-| year | status | order_cnt | value |
-|---:|---:|---:|---:|
-| 2014 | 1 | 224 | 3,873,579.012300 |
+| No. | year | status | order_cnt | value |
+|---:|---:|---:|---:|---:|
+| 1 | 2014 | 1 | 224 | 3,873,579.012300 |
 
 **Observation & finding:** There were 224 pending purchase orders valued at approximately 3.87 million in 2014. This is a material procurement pipeline that should be monitored for delayed receipts, supplier constraints, and cash-flow exposure.
 
