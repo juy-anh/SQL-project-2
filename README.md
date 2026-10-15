@@ -2,13 +2,13 @@
 
 ![Bicycle manufacturer business analytics dashboard](bicycle-manufacturer-analytics-hero.png)
 
-# 🚲 Bicycle Manufacturer Business Insights | BigQuery SQL
+# Bicycle Manufacturer Business Insights | BigQuery SQL
 
 This portfolio project analyses business performance for a bicycle manufacturer using **Google BigQuery SQL** and the **AdventureWorks2019** dataset. It brings together sales, production, inventory, customer-retention, and purchasing data to answer practical questions that business teams can use for decision-making.
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 1. [Background & Overview](#-background--overview)
 2. [Dataset Description & Data Structure](#-dataset-description--data-structure)
@@ -19,7 +19,7 @@ This portfolio project analyses business performance for a bicycle manufacturer 
 
 ---
 
-## 📌 Background & Overview
+## Background & Overview
 
 ### Objective
 
@@ -81,7 +81,7 @@ A bicycle manufacturer needs a connected view of its commercial and operational 
 
 ---
 
-## 🧠 Approach
+## Approach
 
 1. **Map business questions to data domains** — sales, production, and purchasing.
 2. **Join transaction and master data** — use product, subcategory, customer, territory, offer, and purchase-order dimensions.
@@ -91,7 +91,7 @@ A bicycle manufacturer needs a connected view of its commercial and operational 
 
 ---
 
-## ⚒️ SQL Analysis
+## SQL Analysis
 
 ### Query 01 — Sales performance by subcategory in the last 12 months
 
@@ -117,11 +117,9 @@ GROUP BY 1, 2
 ORDER BY 2, 1;
 ```
 
-**Expected output (excerpt):**
+**Result evidence (9 rows shown in the workbook):**
 
-| period | subcategory | qty_item | total_sales | order_cnt |
-|---|---|---:|---:|---:|
-| Sep 2013 | Bike Racks | 312 | 22,828.512 | 71 |
+![Query 01 result: sales by subcategory](assets/query_results/query_01_result.png)
 
 **Observation & finding:** This query provides a monthly commercial view by subcategory. It can reveal whether revenue is driven by high item volume, higher-priced products, or a larger number of customer orders.
 
@@ -168,11 +166,9 @@ WHERE growth_rank <= 3
 ORDER BY growth_rank;
 ```
 
-**Expected output (excerpt):**
+**Result evidence (all 3 ranked subcategories):**
 
-| subcategory | qty_item | prv_qty | growth_rate |
-|---|---:|---:|---:|
-| Mountain Frames | 3,168 | 510 | 5.21 |
+![Query 02 result: top YoY growth subcategories](assets/query_results/query_02_result.png)
 
 **Observation & finding:** Mountain Frames increased item quantity by 521% versus the prior year. This is a strong demand-growth signal; production capacity and material availability should be reviewed before treating the increase as sustainable.
 
@@ -207,11 +203,9 @@ WHERE rk <= 3
 ORDER BY yr, rk;
 ```
 
-**Expected output (excerpt):**
+**Result evidence (12 rows shown in the workbook):**
 
-| year | TerritoryID | order_quantity | rank |
-|---|---:|---:|---:|
-| 2014 | 4 | 11,632 | 1 |
+![Query 03 result: territory ranking](assets/query_results/query_03_result.png)
 
 **Observation & finding:** Territory 4 was the leading territory in the example 2014 output. Its sales approach, customer mix, and product assortment can be benchmarked against lower-performing territories.
 
@@ -245,11 +239,9 @@ FROM (
 GROUP BY 1, 2;
 ```
 
-**Expected output (excerpt):**
+**Result evidence (all returned rows shown in the workbook):**
 
-| year | subcategory | total_discount_cost |
-|---|---|---:|
-| 2012 | Helmets | 49.19999 |
+![Query 04 result: seasonal discount cost](assets/query_results/query_04_result.png)
 
 **Observation & finding:** The output quantifies the financial cost of a promotion by product group. It should be compared with incremental sales or margin uplift before deciding whether a seasonal discount was effective.
 
@@ -300,11 +292,9 @@ GROUP BY 1, 2
 ORDER BY 1, 2;
 ```
 
-**Expected output (excerpt):**
+**Result evidence (20 cohort rows shown in the workbook):**
 
-| month_join | month_diff | customer_cnt |
-|---:|---|---:|
-| 1 | M - 0 | 2,076 |
+![Query 05 result: customer cohort retention](assets/query_results/query_05_result.png)
 
 **Observation & finding:** January's cohort contained 2,076 customers at M-0. The query currently returns retained-customer counts, not a percentage retention rate. For an actual retention-rate KPI, divide each later-month customer count by the M-0 customer count for the same cohort.
 
@@ -346,11 +336,9 @@ FROM (
 ORDER BY Name, mth DESC;
 ```
 
-**Expected output (excerpt):**
+**Result evidence (17 rows shown in the workbook):**
 
-| product_name | month | year | stock_current | stock_previous | MoM_diff |
-|---|---:|---:|---:|---:|---:|
-| BB Bali Bearing | 12 | 2011 | 8,475 | 14,544 | -41.7% |
+![Query 06 result: stock trend and MoM change](assets/query_results/query_06_result.png)
 
 **Observation & finding:** BB Bali Bearing's stock quantity was 41.7% lower in December than in the prior month. A sharp decline may be healthy if demand increased, but it could also indicate a replenishment risk; sales and planned production should be checked together.
 
@@ -400,11 +388,9 @@ FULL JOIN stock_info b
 ORDER BY 1 DESC, 7 DESC;
 ```
 
-**Expected output (excerpt):**
+**Result evidence (multiple December rows shown in the workbook):**
 
-| month | year | ProductID | product_name | order_qty | stock_qty | ratio |
-|---:|---:|---:|---|---:|---:|---:|
-| 12 | 2011 | 745 | HL Mountain Frame - Black, 48 | 1 | 27 | 27.0 |
+![Query 07 result: stock-to-sales ratio](assets/query_results/query_07_result.png)
 
 **Observation & finding:** The example product had 27 stock units for one unit sold in December, producing a ratio of 27.0. A high stock-to-sales ratio may indicate overstock or weak demand; persistently low ratios can signal stockout risk.
 
@@ -426,11 +412,9 @@ WHERE Status = 1
 GROUP BY 1, 2;
 ```
 
-**Expected output:**
+**Result evidence:**
 
-| year | status | order_cnt | value |
-|---:|---:|---:|---:|
-| 2014 | 1 (Pending) | 224 | 3,873,579.0123 |
+![Query 08 result: pending purchase orders](assets/query_results/query_08_result.png)
 
 **Observation & finding:** There were 224 pending purchase orders valued at approximately 3.87 million in 2014. This is a material procurement pipeline that should be monitored for delayed receipts, supplier constraints, and cash-flow exposure.
 
@@ -447,7 +431,7 @@ GROUP BY 1, 2;
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. Open **BigQuery Console** and select **GoogleSQL / Standard SQL**.
 2. Ensure the `adventureworks2019` dataset is available in your BigQuery environment.
